@@ -14,8 +14,3 @@ hammingDistance :: String -> String -> Int
 hammingDistance x y 
     | (length x) == (length y) = sum(zipWith (numberOfDifferingBits) (encode x) (encode y))
     | otherwise                = error "Strings are not of equal length"
-
-hammingDistanceOnCharacterLevel :: Eq a => [a] -> [a] -> Int
-hammingDistanceOnCharacterLevel x y 
-    | (length x) == (length y) = length (filter id (zipWith (/=) x y))
-    | otherwise                = error "Strings are not of equal length"
