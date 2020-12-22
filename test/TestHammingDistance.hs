@@ -1,4 +1,3 @@
--- module TestHammingDistance (main) where
 import Test.HUnit
 import HammingDistance (hammingDistance, findNearestNeighbour)
 
