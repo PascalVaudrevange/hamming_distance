@@ -1,2 +1,4 @@
 .stack-work/
 *~
+*.ock
+hamming-distance-exe.EXE.prof
