@@ -2,9 +2,9 @@ name:                hamming-distance
 version:             0.1.0.0
 github:              "githubuser/hamming-distance"
 license:             BSD3
-author:              "Author name here"
-maintainer:          "example@example.com"
-copyright:           "2020 Author name here"
+author:              "Pascal Vaudrevange"
+maintainer:          "pascal@vaudrevange.com"
+copyright:           "2020 Pascal Vaudrevange"
 
 extra-source-files:
 - README.md
@@ -22,6 +22,10 @@ dependencies:
 - base >= 4.7 && < 5
 - bytestring
 - utf8-string
+- extra
+- string-random
+- random
+- text-conversions
 
 library:
   source-dirs: src

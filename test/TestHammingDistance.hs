@@ -16,5 +16,20 @@ testHammingDistanceWithTwoDifferences :: Test
 testHammingDistanceWithTwoDifferences = TestCase $ assertEqual "A difference of 2 bits"
         2 (hammingDistance "12345" "12045")
 
+
+testFindNearestNeighbor :: Test
+testFindNearestNeighbor = TestCase $ assertEqual "finding the correct next neighbor if element in list"
+        "12345" (findNearestNeighbor "12345" ["01234", "12345", "23456"])
+
+testFindNearestNeighbor2 :: Test
+testFindNearestNeighbor2 = TestCase $ assertEqual "finding the correct next neighbor if element not in list"
+        "02345" (findNearestNeighbor "12345" ["01234", "02345", "23456"])
+
+
 main :: IO Counts
-main = runTestTT $ TestList [testHammingDistanceWithNoDifference, testHammingDistanceWithOneDifference, testHammingDistanceWithTwoDifferences]
+main = runTestTT $ TestList [
+    testHammingDistanceWithNoDifference
+    , testHammingDistanceWithOneDifference 
+    , testHammingDistanceWithTwoDifferences
+    , testFindNearestNeighbor
+    , testFindNearestNeighbor2]
