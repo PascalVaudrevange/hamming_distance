@@ -1,22 +1,34 @@
 module HammingDistance (
-    hammingDistance,
-    findNearestNeighbour
+    hammingDistance
+    , hammingDistanceString
+    , findNearestNeighbour
+    , findNearestNeighbourString
 ) where
 
+import Codec.Binary.UTF8.String (encode, decode)
 import Data.Bits (xor, popCount)
-import Codec.Binary.UTF8.String (encode)
-import GHC.Word (Word8)
 import Data.List.Extra (minimumOn)
+import GHC.Word (Word8)
+
 
 numberOfDifferingBits :: Word8 -> Word8 -> Int
 numberOfDifferingBits x y = popCount (xor x y)
 
-hammingDistance :: String -> String -> Int
+hammingDistance :: [Word8] -> [Word8] -> Int
 hammingDistance x y 
-    | length x == length y = sum(zipWith numberOfDifferingBits (encode x) (encode y))
+    | length x == length y = sum(zipWith numberOfDifferingBits x y)
     | otherwise                = error "Strings are not of equal length"
 
 
-findNearestNeighbour :: [String] -> String -> String
+hammingDistanceString :: String -> String -> Int
+hammingDistanceString x y =
+    hammingDistance (encode x) (encode y)
+
+
+findNearestNeighbour :: [[Word8]] -> [Word8] -> String
 findNearestNeighbour hashes hash =
-    minimumOn (hammingDistance hash) hashes
+    decode (minimumOn (hammingDistance hash) hashes)
+
+findNearestNeighbourString :: [String] -> String -> String
+findNearestNeighbourString hashes hash =
+    findNearestNeighbour (map encode hashes) (encode hash) 
