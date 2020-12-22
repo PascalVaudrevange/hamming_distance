@@ -13,7 +13,7 @@ numberOfDifferingBits x y = popCount (xor x y)
 
 hammingDistance :: String -> String -> Int
 hammingDistance x y 
-    | (length x) == (length y) = sum(zipWith (numberOfDifferingBits) (encode x) (encode y))
+    | length x == length y = sum(zipWith numberOfDifferingBits (encode x) (encode y))
     | otherwise                = error "Strings are not of equal length"
 
 
