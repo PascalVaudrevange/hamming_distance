@@ -1,0 +1,14 @@
+{
+  "name": "hamming_distance_erlang",
+  "settings": {
+    "terminal.integrated.shell.linux": "/bin/bash"
+  },
+  "dockerFile": "Dockerfile",
+  "extensions": [
+    "pgourlain.erlang",
+    "auchenberg.vscode-browser-preview",
+    "grapecity.gc-excelviewer",
+    "mtxr.sqltools",
+    "visualstudioexptteam.vscodeintellicode"
+  ]
+}
